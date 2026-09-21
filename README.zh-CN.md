@@ -98,6 +98,8 @@ npm exec -- playwright install chromium
 npm run test:browser
 ```
 
+安装检查先准备依赖和 npm 缓存，再在空目录中执行 `npm ci --offline`，并在禁用网络的条件下验证安装后的 CLI；准备缓存时可能需要联网。
+
 浏览器测试使用 Playwright Chromium；若 Windows 上没有安装 Playwright Chromium，脚本会自动尝试已安装的 Microsoft Edge，也可通过 `TOOLPAYLOAD_BROWSER_PATH` 指定浏览器程序。CI 在 Ubuntu 和 Windows 的 Node 22、24 上运行核心检查，并通过独立的 Ubuntu Chromium 任务检查 HTML 报告。[调研记录](docs/RESEARCH.md)说明相关 MCP 测试工具与测量选择。
 
 项目采用 [MIT 许可证](LICENSE)。

@@ -9,8 +9,8 @@ const artifacts = join(root, 'artifacts');
 await mkdir(artifacts, { recursive: true });
 const npm = process.env.npm_execpath;
 assert(npm, 'Run via npm run smoke so the current npm CLI can be located portably.');
-let cache;
-try { if ((await stat(join(root, '.cache/npm'))).isDirectory()) cache = join(root, '.cache/npm'); } catch { /* CI uses npm's default cache. */ }
+let cache = process.env.npm_config_cache;
+try { if (!cache && (await stat(join(root, '.cache/npm'))).isDirectory()) cache = join(root, '.cache/npm'); } catch { /* CI uses npm's default cache. */ }
 function execute(binary, args, options = {}) {
   const result = spawnSync(binary, args, { cwd: root, encoding: 'utf8', timeout: 120000, ...options });
   if (result.error) throw result.error;
@@ -28,12 +28,22 @@ for (const required of ['dist/cli.js', 'README.zh-CN.md', 'docs/RESEARCH.md', 'd
 }
 assert(![...packedPaths].some(path => path.startsWith('.work/') || path.startsWith('artifacts/')));
 const tarball = join(artifacts, packages[0].filename);
-const workspace = await mkdtemp(join(artifacts, 'packed-smoke-'));
-await writeFile(join(workspace, 'package.json'), JSON.stringify({ private: true, name: 'toolpayload-install-smoke', version: '1.0.0' }));
-const installArgs = [npm, 'install', '--offline', '--ignore-scripts', '--no-audit', '--no-fund', '--package-lock=false'];
+// A fresh npm ci caches tarballs, but may not cache registry metadata needed
+// to resolve a new installation. Prepare a real install and lockfile first.
+const preparation = await mkdtemp(join(artifacts, 'packed-prepare-'));
+await writeFile(join(preparation, 'package.json'), JSON.stringify({ private: true, name: 'toolpayload-install-smoke', version: '1.0.0' }));
+const installArgs = [npm, 'install', '--ignore-scripts', '--no-audit', '--no-fund', '--package-lock=true'];
 if (cache) installArgs.push('--cache', cache);
 installArgs.push(tarball);
-execute(process.execPath, installArgs, { cwd: workspace });
+execute(process.execPath, installArgs, { cwd: preparation });
+// Reinstall into a separate empty directory using only the prepared cache.
+const workspace = await mkdtemp(join(artifacts, 'packed-smoke-'));
+for (const name of ['package.json', 'package-lock.json']) {
+  await writeFile(join(workspace, name), await readFile(join(preparation, name)));
+}
+const offlineArgs = [npm, 'ci', '--offline', '--ignore-scripts', '--no-audit', '--no-fund'];
+if (cache) offlineArgs.push('--cache', cache);
+execute(process.execPath, offlineArgs, { cwd: workspace });
 const installedCli = join(workspace, 'node_modules/toolpayload/dist/cli.js');
 const fixture = join(root, 'examples/baseline-search.json');
 const networkGuard = join(root, 'scripts/deny-network.cjs');

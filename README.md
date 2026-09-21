@@ -98,6 +98,8 @@ npm exec -- playwright install chromium
 npm run test:browser
 ```
 
+The smoke check prepares an installation and its npm cache, then installs again into an empty directory with `npm ci --offline`. It checks the installed CLI with network access blocked. Cache preparation may require network access.
+
 The browser test uses Playwright Chromium. On Windows it automatically falls back to installed Microsoft Edge when Playwright Chromium is unavailable; `TOOLPAYLOAD_BROWSER_PATH` can select a browser executable explicitly. CI runs the core checks on Ubuntu and Windows with Node 22 and 24. A separate Ubuntu Chromium job checks the HTML report. See [research notes](docs/RESEARCH.md) for neighboring MCP testing work and measurement choices.
 
 MIT licensed; see [LICENSE](LICENSE).
