@@ -1,0 +1,27 @@
+node_modules/
+dist/
+artifacts/
+.cache/
+.work/
+*.tgz
+coverage/
+
+# Local-only development records and editor state
+docs/PLAN.md
+docs/PROGRESS.md
+.codex/
+.agents/
+.vscode/
+.idea/
+*.log
+.DS_Store
+Thumbs.db
+
+# Credentials and local environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx

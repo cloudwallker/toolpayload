@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: ${{ matrix.os }} / Node ${{ matrix.node }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: ['22', '24']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      - run: npm run smoke
+      - run: npm run demo
+      - name: Upload demo reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: demo-${{ matrix.os }}-node-${{ matrix.node }}
+          path: |
+            artifacts/baseline.json
+            artifacts/demo-report.json
+            artifacts/demo-report.html
+          if-no-files-found: ignore
+
+  browser:
+    name: HTML report / Chromium
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm exec -- playwright install --with-deps chromium
+      - run: npm run test:browser
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: demo-browser
+          path: artifacts/demo-report.html
+          if-no-files-found: ignore
