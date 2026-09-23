@@ -31,10 +31,11 @@ Thumbs.db
 **/tests/
 **/test/
 /.github/
-/docs/
+/docs/RESEARCH.md
 /benchmarks/
 /artifacts/
 /e2e/
-/examples/
 /AGENTS.md
-/scripts/
+/scripts/browser-smoke.mjs
+/scripts/deny-network.cjs
+/scripts/smoke.mjs

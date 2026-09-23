@@ -8,6 +8,9 @@
   },
   "files": [
     "dist",
+    "examples",
+    "docs/assets/report-preview.png",
+    "scripts/demo.mjs",
     "README.md",
     "README.zh-CN.md",
     "LICENSE"
@@ -26,6 +29,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
+    "demo": "node scripts/demo.mjs",
     "prepack": "npm run build"
   },
   "dependencies": {

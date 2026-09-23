@@ -1,0 +1,28 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Found two matching pages."
+    }
+  ],
+  "structuredContent": {
+    "results": [
+      {
+        "title": "Authentication guide",
+        "url": "https://example.invalid/docs/auth"
+      },
+      {
+        "title": "API reference",
+        "url": "https://example.invalid/docs/api"
+      }
+    ],
+    "trace": {
+      "queryPlan": "Search the documentation index, expand title matches, fetch full snippets, and rank every candidate before returning the two matching pages.",
+      "retrievalLog": [
+        "Opened the documentation index and visited each candidate page to collect the complete result body for diagnostic inspection.",
+        "Repeated the candidate ranking step with every intermediate score and explanatory note retained in the final tool response.",
+        "Serialized the full retrieval trace even though the caller only requested the two matching page titles and links."
+      ]
+    }
+  }
+}
