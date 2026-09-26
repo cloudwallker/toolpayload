@@ -1,8 +1,12 @@
 # ToolPayload
 
-[English](README.md)
+### 离线检查 MCP 工具结果的体积预算
 
-**在 MCP 工具结果进入 Agent 上下文之前，发现意外膨胀。**
+**找出已保存 MCP 结果中占用过大的字段，与基线比较，在 CI 中发现体积回归，并通过单文件 HTML 报告查看详情。**
+
+[English](README.md) | 简体中文
+
+[安装与演示](#从源码安装) · [结果与预算](#结果文件与预算) · [指标边界](#指标边界)
 
 ToolPayload 是面向 [Model Context Protocol（MCP）工具](https://modelcontextprotocol.io/specification/2026-07-28/server/tools)维护者的离线命令行工具：分析已保存的工具结果，找出主要占用字段，并在 CI 中执行可配置的响应大小预算。
 

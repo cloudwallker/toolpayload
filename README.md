@@ -1,8 +1,12 @@
 # ToolPayload
 
-[简体中文](README.zh-CN.md)
+### Offline size budgets for MCP tool results
 
-**Find oversized MCP tool results before they reach your agent's context.**
+**Find the fields bloating saved MCP results, compare them with a baseline, and catch size regressions in CI with a self-contained HTML report.**
+
+English | [简体中文](README.zh-CN.md)
+
+[Install and demo](#install-from-source) · [Results and budgets](#saved-results-and-budgets) · [Measurement limits](#what-the-measurements-mean)
 
 ToolPayload is an offline CLI for maintainers of [Model Context Protocol (MCP) tools](https://modelcontextprotocol.io/specification/2026-07-28/server/tools). Analyze saved tool results, find the fields that account for their size, and enforce configurable response-size budgets in CI.
 
