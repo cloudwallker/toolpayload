@@ -18,6 +18,8 @@ ToolPayload 是面向 [Model Context Protocol（MCP）工具](https://modelconte
 
 ![ToolPayload HTML 报告预览](docs/assets/report-preview.png)
 
+![toolpayload](docs/assets/cartoon-infographic.png)
+
 ## 从源码安装
 
 需要 Node.js 22 或更新版本、npm 和 Git。首次安装依赖需要联网或已有 npm 缓存。

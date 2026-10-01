@@ -18,6 +18,8 @@ No API key, running MCP server, or model call is required. The budgets are proje
 
 ![ToolPayload HTML report preview](docs/assets/report-preview.png)
 
+![toolpayload](docs/assets/cartoon-infographic.png)
+
 ## Install from source
 
 Requires Node.js 22 or newer, npm, and Git. The first dependency installation needs network access or a populated npm cache.
