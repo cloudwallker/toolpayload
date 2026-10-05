@@ -14,7 +14,7 @@ ToolPayload is an offline CLI for maintainers of [Model Context Protocol (MCP) t
 - Compare fixtures with a saved baseline and fail CI on budget violations.
 - Explore a self-contained HTML report with filtering, sorting, and field details.
 
-No API key, running MCP server, or model call is required. The budgets are project defaults you can configure; they are not MCP limits. Token counts are local reference measurements, not model billing estimates.
+Analyze saved JSON entirely offline and configure size budgets for your project. Byte and token measurement definitions are documented in [What the measurements mean](#what-the-measurements-mean).
 
 ![ToolPayload HTML report preview](docs/assets/report-preview.png)
 

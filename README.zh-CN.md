@@ -14,7 +14,7 @@ ToolPayload 是面向 [Model Context Protocol（MCP）工具](https://modelconte
 - 将样本与已保存基线比较，超预算时让 CI 检查失败。
 - 通过单文件 HTML 报告筛选样本、排序大小和展开字段。
 
-无需 API 密钥、启动 MCP 服务或调用模型。预算是可调整的项目默认值，并非 MCP 官方限制；token 计数仅供本地参考，不用于推算模型账单。
+完全离线分析已保存的 JSON，并按项目需要配置体积预算。字节与 token 的测量定义见[指标边界](#指标边界)。
 
 ![ToolPayload HTML 报告预览](docs/assets/report-preview.png)
 
