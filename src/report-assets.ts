@@ -11,6 +11,39 @@ export const reportCss = String.raw`
 .case-list{display:grid;gap:14px}.case-card{background:#fff;border:1px solid #e0e8ee;border-radius:16px;box-shadow:0 6px 24px rgba(36,64,91,.035);overflow:hidden}.case-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding:22px 25px 18px}.case-name{font-size:1.07rem;line-height:1.35;font-weight:750;word-break:break-word;color:#1b3352}.case-status{display:inline-flex;align-items:center;gap:7px;border-radius:100px;padding:6px 10px;font-size:.75rem;font-weight:750;text-transform:capitalize;white-space:nowrap}.case-card-body{padding:0 25px 23px}.case-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;padding:15px 0 18px;border-top:1px solid #eef2f5}.metric-label{display:block;font-size:.68rem;font-weight:800;letter-spacing:.08em;color:#8799a8;text-transform:uppercase;margin-bottom:7px}.metric-value{display:block;font-size:1.08rem;font-weight:750;color:#243d58}.metric-value.muted{color:#8b9aaa;font-size:.9rem;font-weight:600}.metric-note{display:block;font-size:.72rem;color:#8698a8;margin-top:3px}.compare{padding:18px 18px 13px;background:#f6f9fc;border:1px solid #eaf0f5;border-radius:11px}.bar-row{display:grid;grid-template-columns:80px minmax(0,1fr) 90px;align-items:center;gap:12px;margin-bottom:10px}.bar-label,.bar-value{font-size:.75rem;color:#687f93}.bar-value{text-align:right;font-variant-numeric:tabular-nums}.bar-track{height:9px;border-radius:20px;background:#e5edf3;overflow:hidden}.bar-fill{height:100%;border-radius:20px;background:#94a6bc;min-width:0}.bar-fill.current{background:linear-gradient(90deg,#6058d0,#218ab2)}.budget-line,.insight-line{font-size:.79rem;line-height:1.5;color:#526c82}.budget-line{margin-top:8px}.insight-line{margin-top:14px}.tag-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}.tag{display:inline-flex;align-items:center;border-radius:6px;background:#f1efff;color:#5d50a6;padding:5px 8px;font-size:.72rem;font-weight:650}.tag.warning{background:#fff2dc;color:#8a6428}.tag.type{background:#eaf4f8;color:#426d81}.details-toggle{border:0;border-top:1px solid #edf1f4;width:100%;padding:14px 25px;background:#fff;text-align:left;color:#5b56b5;font-weight:750;font-size:.82rem}.details-toggle:after{content:"⌄";float:right;font-size:1rem}.details-toggle[aria-expanded="true"]:after{content:"⌃"}.details-toggle:hover{background:#f9faff}.case-detail{border-top:1px solid #edf1f4;padding:22px 25px 26px}.detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.detail-box{background:#f8fafc;border:1px solid #ecf0f4;border-radius:10px;padding:16px}.detail-box h4,.field-section h4{font-size:.72rem;letter-spacing:.1em;color:#78899a;margin:0 0 12px;text-transform:uppercase}.detail-pair{display:flex;justify-content:space-between;gap:15px;padding:5px 0;font-size:.8rem}.detail-pair span:first-child{color:#71879b}.detail-pair span:last-child{color:#2e4964;text-align:right;overflow-wrap:anywhere}.field-section{margin-top:21px}.field-help{font-size:.77rem;color:#8294a5;margin:-5px 0 12px}.field-tree{border:1px solid #e8edf2;border-radius:10px;padding:7px 13px;max-height:420px;overflow:auto}.field-node{margin-left:15px;border-left:1px solid #e1e7ee;padding-left:10px}.field-node:first-child{margin-left:0;border-left:0;padding-left:0}.field-node summary{cursor:pointer}.field-line{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:7px 0;font-size:.78rem}.field-path{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere;color:#36526c}.field-bytes{color:#648199;white-space:nowrap;font-variant-numeric:tabular-nums}.field-children{margin-left:8px}.empty-state{padding:48px;text-align:center;background:#fff;border:1px solid #e1e8ef;border-radius:14px;color:#708398}footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid #dce6ee;margin:64px 0 0;padding:25px 0 38px;font-size:.78rem;color:#8b9ba9}footer span:first-child{font-weight:800;color:#7388a0}
 @media(max-width:900px){.overview{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding:48px 0 36px}.case-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.eyebrow{display:none}}
 @media(max-width:640px){.page-shell{padding:0 17px}.masthead{height:66px}.hero{display:block;padding:42px 0 31px}.summary-panel{margin-top:30px;min-height:auto}.overview{gap:9px}.stat-card{padding:16px;min-height:125px}.stat-card strong{font-size:1.47rem}.stat-label{font-size:.59rem}.stat-note{font-size:.68rem}.method-note{margin:18px 0 45px}.toolbar{flex-wrap:wrap}.search-wrap{max-width:none;flex-basis:100%}.sort-wrap{margin-left:0}.case-card-top{padding:19px 18px 15px}.case-card-body{padding:0 18px 20px}.case-metrics{gap:12px}.metric-value{font-size:.98rem}.bar-row{grid-template-columns:55px minmax(0,1fr) 68px;gap:7px}.details-toggle{padding:14px 18px}.case-detail{padding:18px}.detail-grid{grid-template-columns:1fr}}
+/* Accessible workspace refinements */
+
+body { font-size: 16px; line-height: 1.65; }
+.hero { padding-block: 48px 36px; }
+h1 { font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 1.15; }
+.eyebrow, .section-kicker, .kicker, .summary-label, .stat-label { font-size: .78rem; letter-spacing: .08em; }
+.stat-note, .method-note p, .summary-count, .visible-count, .sort-wrap, .metric-label, .metric-note, .detail-label, .details-toggle, .tag, .finding, footer { font-size: .875rem; }
+.stat-label, .stat-note, .visible-count, .sort-wrap { color: #4d667e; }
+.method-note { margin-bottom: 36px; padding: 20px 24px; }
+.method-note strong { font-size: 1rem; }
+.toolbar { padding: 18px; background: #edf2f8; border: 1px solid #dce5ef; border-radius: 12px; align-items: end; gap: 18px; }
+.search-wrap { display: flex; flex-direction: column; gap: 8px; max-width: none; }
+.search-label { font-size: .875rem; color: #425b74; font-weight: 650; }
+.search-wrap svg { top: auto; bottom: 14px; transform: none; }
+.search-wrap input { font-size: 16px; }
+.toggle-wrap { min-height: 44px; font-size: .9rem; }
+.sort-wrap { flex-direction: column; align-items: start; gap: 8px; }
+.sort-wrap select { font-size: .9rem; }
+.details-toggle { min-height: 48px; }
+.case-card-top { border-left: 4px solid #6657b8; }
+.case-card:has(.status-fail) .case-card-top { border-left-color: #b34453; }
+.case-name, .bar-label, .field-path, .case-detail, code, .detail-row { overflow-wrap: anywhere; min-width: 0; }
+.bar-label { white-space: normal; }
+.bar-label, .bar-value, .budget-line, .insight-line, .detail-box h4, .field-section h4, .detail-pair, .field-help, .field-line { font-size: .875rem; }
+.metric-label, .metric-note, .field-help, .detail-box h4, .field-section h4 { color: #536d83; }
+.field-tree { max-height: 480px; }
+.field-node summary { min-height: 44px; }
+.stat-card strong { white-space: normal; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.overview > *, .detail-grid > *, .metrics > * { min-width: 0; }
+@media (max-width: 760px) { .toolbar { flex-wrap: wrap; } .search-wrap { flex-basis: 100%; } .sort-wrap { margin-left: 0; flex: 1; } .sort-wrap select { width: 100%; } .overview { grid-template-columns: repeat(2, minmax(0, 1fr)); } .case-card-top { padding: 20px; } .page-shell { padding-inline: 20px; } .stat-card { padding: 20px; } .case-metrics { flex-wrap: wrap; } }
+@media (max-width: 420px) { .overview { grid-template-columns: 1fr; } .case-card-top { flex-wrap: wrap; } .bar-row { grid-template-columns: minmax(55px, 1fr) minmax(0, 1.5fr) 70px; } .sort-wrap, .toggle-wrap { width: 100%; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+
 `;
 
 export const reportJs = String.raw`
@@ -139,7 +172,11 @@ export const reportJs = String.raw`
       const fields = add(detail, node('div', 'field-section'));
       add(fields, node('h4', '', 'Field size tree'));
       add(fields, node('p', 'field-help', 'RFC 6901 paths · subtree bytes overlap; do not add parent and child sizes. Expand a row to inspect nested fields.'));
-      fieldTree(add(fields, node('div', 'field-tree')), item.current.fields);
+      const tree = add(fields, node('div', 'field-tree'));
+      tree.tabIndex = 0;
+      tree.setAttribute('role', 'region');
+      tree.setAttribute('aria-label', 'Field attribution tree; scroll to inspect more fields');
+      fieldTree(tree, item.current.fields);
     }
     return card;
   };

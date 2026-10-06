@@ -104,3 +104,7 @@ npm run demo
 The demo uses checked-in example tool results and writes its HTML report to the ignored `artifacts/` directory.
 
 MIT licensed; see [LICENSE](LICENSE).
+
+## Interface
+
+Offline MCP result-size budget reports with visible case-search labels, keyboard-accessible field trees, readable metrics, and responsive report layouts.
